@@ -1,0 +1,14 @@
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\bin\Debug\net6.0\EntityLayer.deps.json
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\bin\Debug\net6.0\EntityLayer.runtimeconfig.json
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\bin\Debug\net6.0\EntityLayer.dll
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\bin\Debug\net6.0\EntityLayer.pdb
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.csproj.AssemblyReference.cache
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.AssemblyInfoInputs.cache
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.AssemblyInfo.cs
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.csproj.CoreCompileInputs.cache
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.dll
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\refint\EntityLayer.dll
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.pdb
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\EntityLayer.genruntimeconfig.cache
+D:\VS DOSYALARI\CorePortfolio\EntityLayer\obj\Debug\net6.0\ref\EntityLayer.dll

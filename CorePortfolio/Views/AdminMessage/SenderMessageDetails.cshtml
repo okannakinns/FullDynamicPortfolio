@@ -1,0 +1,16 @@
+﻿@using EntityLayer.Concrete;
+@model WriterMessage
+@{
+    ViewData["Title"] = "Gönderilen Mesaj Detayları";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kullanıcı Mesajı Detayları</h4>
+            <p class="description">@Model.Content</p>
+            <p class="text-muted"><small><b>Alıcı Adı Soyadı:</b> @Model.ReceiverName <br /><b>Adresi:</b> @Model.Receiver <br /> <b>Gönderilme Tarihi:</b> @Model.Date.ToString("dd MMM yyyy")  @Model.Date.ToString("hh:mm") </small></p>
+
+        </div>
+    </div>
+</div>

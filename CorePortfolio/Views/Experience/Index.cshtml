@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete;
+@model List<Experience>
+@{
+    ViewData["Title"] = "Deneyim Listesi";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Deneyimler Listesi Tablosu</h4>
+            <p class="card-description">
+              <a style="position:absolute;right:21px;top:22px;" href="@Url.Action("Add","Experience")" class="btn btn-outline-success">Ekle</a>
+            </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Alan</th>
+                            <th>Firma/Tarih</th>
+                            <th>Resim</th>
+                            <th></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.ExperienceID</th>
+                                <td>@item.Name</td>
+                                <td>@item.Date</td>
+                                <td><img src="@item.ImageUrl" class="bg-light" style="padding: 3px; border-radius: 10px;" /></td>
+                                <td>
+                                    <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                                        
+                                        <a href="/Experience/Delete/@item.ExperienceID" class="dropdown-item preview-item">
+                                            <div class="preview-thumbnail">
+                                            </div>
+                                            <div class="preview-item-content">
+                                                <p class="preview-subject ellipsis mb-1 text-small">Sil</p>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="/Experience/Update/@item.ExperienceID" class="dropdown-item preview-item">
+                                            <div class="preview-thumbnail">
+                                            </div>
+                                            <div class="preview-item-content">
+                                                <p class="preview-subject ellipsis mb-1 text-small">Güncelle</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                               
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

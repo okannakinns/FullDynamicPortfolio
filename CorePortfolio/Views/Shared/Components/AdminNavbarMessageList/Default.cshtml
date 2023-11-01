@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete;
+@model List<WriterMessage>
+
+<li class="nav-item dropdown border-left">
+    <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+        <i class="mdi mdi-email"></i>
+        <span class="count bg-success"></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+        <h6 class="p-3 mb-0">Bugünki Mesajlar</h6>
+        <div class="dropdown-divider"></div>
+
+        @if(Model.Count()!=0)
+        {
+            @foreach (var item in Model)
+            {
+                <a href="/AdminMessage/ReceiverMessageDetails/@item.WriterMessageID" class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                        <img src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/faces/userpic.png" alt="image" class="rounded-circle profile-pic">
+                    </div>
+                    <div class="preview-item-content">
+                        <p class="preview-subject ellipsis mb-1"><b>@item.SenderName</b> bir mesaj gönderdi</p>
+                        <p class="text-muted mb-0"> Bugün @item.Date.ToString("HH:mm") </p>
+                    </div>
+                </a>
+            }
+        }
+        else
+        {
+            <p class="p-3 mb-0 text-center">Bugüne Ait Bir Kullanıcı Mesajı Bulunamadı</p>
+        }
+
+
+        <div class="dropdown-divider"></div>
+        <p class="p-3 mb-0 text-center"><a href="/AdminMessage/ReceiverMessageList/">@ViewBag.TotalMessages Mesajın Hepsini Gör</a></p>
+    </div>
+</li>

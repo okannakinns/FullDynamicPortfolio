@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Concrete;
+@model Portfolio
+@{
+    ViewData["Title"] = "Proje Güncelle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Proje Güncelleme</h3>
+    <hr />
+</div>
+<form action="@Url.Action("UpdatePortfolio","Portfolio")" method="post">
+    <div class="col-lg-12">
+        <input type="hidden" name="PortfolioID" value="@Model.PortfolioID" />
+        <input type="hidden" name="CreationDate" value="@Model.CreationDate" />
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="Platform">Platform</label>
+                <input required type="text" class="form-control" id="Platform" name="Platform" placeholder="URL" value="@Model.Platform">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Name">Adı</label>
+                <input required type="text" class="form-control" id="Name" name="Name" placeholder="Proje Adı" value="@Model.Name">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Status">Durumu</label>
+                <select required type="text" class="form-control" id="Status" name="Status"  data-status-id="@Model.Status">
+                    <option value="Tamamlandı">Tamamlandı</option>
+                    <option value="Devam Ediyor">Devam Ediyor</option>
+                    <option value="Plan Aşamasında">Plan Aşamasında</option>
+                </select>
+               
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="ImageUrl">Büyük Resim</label>
+                <input required type="text" class="form-control" id="ImageUrl" name="ImageUrl" placeholder="Büyük Resim URL" value="@Model.ImageUrl">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="ImageUrl">Küçük Resim</label>
+                <input required type="text" class="form-control" id="ImageUrl2" name="ImageUrl2" placeholder="Büyük Resim URL" value="@Model.ImageUrl2">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="ProjectUrl">Proje Link</label>
+                <input required type="text" class="form-control" id="ProjectUrl" name="ProjectUrl" placeholder="https://github.com/okannakinns" value="@Model.ProjectUrl">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-md-8">
+                <button type="submit" class="btn btn-outline-info">Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    $(document).ready(function () {
+
+        var selectedStatus = $('#Status').data('status-id');
+
+
+        $('#Status option').each(function () {
+            if ($(this).val() === selectedStatus) {
+                $(this).prop('selected', true);
+            }
+        });
+    });
+</script>

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Sosyal Medya Ekle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<form action="@Url.Action("UpdateSocialMedia","SocialMedia")" method="post">
+    <div class="col-lg-12">
+        <div class="row">
+            
+            <div class="form-group col-md-4">
+                <label for="Name">Platform</label>
+                <input required type="text" class="form-control" id="Name" name="Name" >
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Url">Adres</label>
+                <input required type="text" class="form-control" id="Url" name="Url" >
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Icon">İkon</label>
+                <select required type="text" class="form-control" id="Icon" name="Icon" >
+                    <option value="fab fa-facebook">Facebook</option>
+                    <option value="fab fa-twitter">Twitter</option>
+                    <option value="fab fa-instagram">Instagram</option>
+                    <option value="fab fa-tiktok">TikTok</option>
+                    <option value="fab fa-snapchat">Snapchat</option>
+                    <option value="fab fa-spotify">Spotify</option>
+                    <option value="fab fa-whatsapp">WhatsApp</option>
+                    <option value="fab fa-discord">Discord</option>
+                    <option value="fab fa-linkedin">LinkedIn</option>
+                    <option value="fab fa-github">GitHub</option>
+                    <option value="fab fa-google">Google</option>
+                    <option value="fab fa-bitcoin">Binance</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-8">
+                <button type="submit" class="btn btn-info">Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+

@@ -1,0 +1,57 @@
+﻿@using EntityLayer.Concrete;
+@model List<WriterMessage>
+@{
+    var date = "";
+}
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+    <p class="mb-0 font-weight-normal float-left dropdown-header"><b>Son 3 Mesaj</b></p>
+    @if (Model != null)
+    {
+        @foreach (var item in Model)
+        {
+
+            <a class="dropdown-item preview-item" href="/User/Message/ReceiverMessageDetails/@item.WriterMessageID">
+                <div class="preview-thumbnail">
+                    <div class="preview-icon">
+                        <img src="~/skydash/images/faces/userpic.png">
+                    </div>
+                </div>
+                <div class="preview-item-content">
+                    <h6 class="preview-subject font-weight-normal"><b>@item.SenderName</b> bir mesaj gönderdi.</h6>
+                    @{
+
+                        TimeSpan day = (DateTime.Now - item.Date);
+                        if (day.Days < 1 && item.Date.Day == DateTime.Now.Day && day.Hours < 1)
+                        {
+
+                            date = day.Minutes + " Dakika Önce";
+                        }
+                        else if (day.Days >= 1 && day.Days <= 4)
+                        {
+
+                            date = day.Days + " Gün Önce";
+                        }
+                        else if (day.TotalHours <= 23)
+                        {
+
+                            date = day.Hours + " Saat Önce";
+                        }
+                        else if (day.Days > 4 && day.TotalHours > 23)
+                        {
+
+                            date = item.Date.ToString("dd MMM yyyy");
+                        }
+                    }
+                    <p class="description text-muted">@date</p>
+                </div>
+            </a>
+        }
+       
+    }
+    else
+    {
+        <p>Hiç Mesaj Bulunamadı</p>
+
+    }
+   
+</div>

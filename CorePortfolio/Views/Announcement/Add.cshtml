@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Duyuru Ekle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<form action="@Url.Action("AddAnnouncement","Announcement")" method="post">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="Title">Başlık</label>
+                <input required type="text" class="form-control" id="Title" name="Title" placeholder="İçerik Başlığını Yazınız...">
+            </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-md-12">
+                <label for="Content">İçerik</label>
+                <textarea required type="text" class="form-control" id="Content" name="Content" rows="3" maxlength="400" placeholder="İçeriği Yazınız..."></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-8">
+                <button type="submit" class="btn btn-outline-info">Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+
+</form>

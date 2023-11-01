@@ -1,0 +1,99 @@
+﻿@using EntityLayer.Concrete;
+@model List<WriterMessage>
+@{
+    ViewData["Title"] = "Gelen Kutusu";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+    var status = "";
+    var date = "";
+}
+
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Gelen Kutusu</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Gönderici Adı</th>
+                            <th>Gönderici Adresi</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                                
+                            TimeSpan day = (DateTime.Now - item.Date);
+                            if (day.Days < 1 && item.Date.Day == DateTime.Now.Day && day.Hours < 1)
+                                        {
+                                status = "Yeni";
+                                date = day.Minutes + " Dakika Önce";
+                            }
+                            else if (day.Days >= 1 && day.Days <= 4 )
+                            {
+                                status = null;
+                                date = day.Days + " Gün Önce";
+                            }
+                            else if (day.TotalHours <= 23)
+                            {
+                                status = "Yeni";
+                                date = day.Hours + " Saat Önce";
+                            }
+                            else if (day.Days > 4 && day.TotalHours > 23)
+                            {
+                                status = null;
+                                date = item.Date.ToString("dd MMM yyyy");
+                            }
+                            <tr >
+                               
+                                @if (status != null)
+                                {
+                                    <td><label class="badge badge-outline-danger">@status</label></td>
+                                }
+                                else
+                                {
+                                    <td><label class="badge badge-outline-primary"><i style="font-size:20px;" class="mdi mdi-email"></i></label></td>
+                                }
+
+                                <td>@item.SenderName</td>
+                                <td>@item.Sender</td>
+                                <th>@item.Subject</th>
+                                <th>@date</th>
+                                <td>
+                                    <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                                        <div class="dropdown-divider"></div>
+                                        <a href="/AdminMessage/ReceiverMessageDetails/@item.WriterMessageID" class="dropdown-item preview-item">
+                                            <div class="preview-thumbnail">
+                                            </div>
+                                            <div class="preview-item-content">
+                                                <p class="preview-subject ellipsis mb-1 text-small">İncele</p>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="/AdminMessage/Delete/@item.WriterMessageID" class="dropdown-item preview-item">
+                                            <div class="preview-thumbnail">
+                                            </div>
+                                            <div class="preview-item-content">
+                                                <p class="preview-subject ellipsis mb-1 text-small">Sil</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

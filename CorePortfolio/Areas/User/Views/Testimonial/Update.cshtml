@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Referans Yorumu Ekleme</h4>
+                <p class="card-description">
+                    Aşağıdaki yerleri doldurarak yorum gönderebilirsiniz.
+                </p>
+                <form class="forms-sample" method="post">
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="ClientName">Ad Soyad</label>
+                            <input type="text" class="form-control" id="ClientName" name="ClientName" placeholder="Kullanıcı Bilgileriniz İle Aynı Olmalıdır" value="@Model.ClientName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="Company">Şirket</label>
+                            <input type="text" class="form-control" id="Company" name="Company" placeholder="Şirket İsmi" value="@Model.Company">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="Title">Pozisyon</label>
+                            <input type="text" class="form-control" id="Title" name="Title" placeholder="Örn:Ios Developer" value="@Model.Title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label for="Comment">Yorum</label>
+                            <textarea type="text" class="form-control" id="Comment" rows="3" maxlength="400" minlenght="20" name="Comment" placeholder="Yorum">@Model.Comment</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <button asp-controller="Testimonial" asp-action="AddTestimonial" class="btn btn-primary mr-2">Kaydet</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+

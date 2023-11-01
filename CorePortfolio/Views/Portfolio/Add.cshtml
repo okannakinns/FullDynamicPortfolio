@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Proje Ekle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<form action="@Url.Action("AddPortfolio","Portfolio")" method="post">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="Platform">Platform</label>
+                <input required type="text" class="form-control" id="Platform" name="Platform" placeholder="Örn:C#">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Name">Adı</label>
+                <input required type="text" class="form-control" id="Name" name="Name" placeholder="Proje Adı">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="Status">Durumu</label>
+                <select required type="text" class="form-control" id="Status" name="Status" >
+                    <option value="Tamamlandı">Tamamlandı</option>
+                    <option value="Devam Ediyor">Devam Ediyor</option>
+                    <option value="Plan Aşamasında">Plan Aşamasında</option>
+                </select>
+                
+            </div>
+            </div>
+        
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="ImageUrl">Büyük Resim</label>
+                <input required type="text" class="form-control" id="ImageUrl" name="ImageUrl" placeholder="Büyük Resim URL">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="ImageUrl">Küçük Resim</label>
+                <input required type="text" class="form-control" id="ImageUrl2" name="ImageUrl2" placeholder="Büyük Resim URL">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="ProjectUrl">Proje Link</label>
+                <input required type="text" class="form-control" id="ProjectUrl" name="ProjectUrl" placeholder="https://github.com/okannakinns">
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="form-group col-md-8">
+                <button type="submit" class="btn btn-outline-info">Kaydet</button>
+            </div>
+        </div>
+    </div>
+    
+
+</form>

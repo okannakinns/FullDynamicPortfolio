@@ -1,0 +1,52 @@
+﻿@model CorePortfolio.Areas.User.Models.UserEditViewModel
+@{
+    ViewData["Title"] = "Profil Ayarları";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Profil Ayarları</h4>
+                  <p class="card-description">
+                    Profil Bilgilerinizi Aşağıdan Değiştirebilirsiniz
+                  </p>
+                  <form class="forms-sample" method="post">
+
+                    <div class="form-group">
+                        <div class="col-md-5">
+                        <label for="exampleInputUsername1">Ad</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" asp-for="Name" placeholder="Ad">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="col-md-5">
+                        <label for="exampleInputUsername1">Soyad</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" asp-for="Surname" placeholder="Soyad">
+                    </div>
+                    </div>
+                   
+                    <div class="form-group">
+                    <div class="col-md-5">
+                      <label for="exampleInputPassword1">Yeni Şifre</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" asp-for="Password" name="Password" placeholder="Yeni Şifre">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="col-md-5">
+                        <label for="exampleInputConfirmPassword1">Yeni Şifre Tekrar</label>
+                        <input type="password" class="form-control" id="exampleInputConfirmPassword1" asp-for="ConfirmPassword" name="ConfirmPassword" placeholder=" Yeni Şifre Tekrar">
+                    </div>
+                    </div>
+                <div class="col-md-5">
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-light">Vazgeç</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+</div>
+

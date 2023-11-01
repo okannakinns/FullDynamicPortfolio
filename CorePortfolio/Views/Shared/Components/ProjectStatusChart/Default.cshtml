@@ -1,0 +1,35 @@
+﻿<div class="col-md-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Proje Durum Oranları</h4>
+            <canvas id="transaction-history" class="transaction-chart"></canvas>
+            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                <div class="text-md-center text-xl-left">
+                    <h6 class="mb-1 text-success">Tamamlanan</h6>
+                    
+                </div>
+                <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                    <h6 id="status1" class="font-weight-bold mb-0">@ViewBag.Status1</h6>
+                </div>
+            </div>
+            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                <div class="text-md-center text-xl-left">
+                    <h6  class="mb-1 text-warning">Devam Eden</h6>
+                    
+                </div>
+                <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                    <h6 id="status2" class="font-weight-bold mb-0">@ViewBag.Status2</h6>
+                </div>
+            </div>
+            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                <div class="text-md-center text-xl-left">
+                    <h6 class="mb-1 text-danger">Planlanan</h6>
+                    
+                </div>
+                <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                    <h6 id="status3" class="font-weight-bold mb-0">@ViewBag.Status3</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

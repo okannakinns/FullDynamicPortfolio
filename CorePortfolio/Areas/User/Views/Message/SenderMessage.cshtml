@@ -1,0 +1,78 @@
+﻿@using EntityLayer.Concrete;
+@model List<WriterMessage>
+@{
+    ViewData["Title"] = "Giden Kutusu";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var status ="";
+    var date ="";
+}
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Giden Kutusu</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                          <th></th>
+                          <th>Alıcı Adı</th>
+                          <th>Alıcı Adresi</th>
+                          <th>Konu</th>
+                          <th>Tarih</th>
+                          <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+
+                                TimeSpan day = (DateTime.Now - item.Date);
+                                if (day.Days < 1 && item.Date.Day == DateTime.Now.Day && day.Hours < 1)
+                                {
+                                    status = "Yeni";
+                                    date = day.Minutes + " Dakika Önce";
+                                }
+                                else if (day.Days >= 1 && day.Days <= 4)
+                                {
+                                    status = null;
+                                    date = day.Days + " Gün Önce";
+                                }
+                                else if (day.TotalHours <= 23)
+                                {
+                                    status = "Yeni";
+                                    date = day.Hours + " Saat Önce";
+                                }
+                                else if (day.Days > 4 && day.TotalHours > 23)
+                                {
+                                    status = null;
+                                    date = item.Date.ToString("dd MMM yyyy");
+                                }
+                                <tr>
+
+                                    @if (status != null)
+                                    {
+                                        <td><label class="badge badge-danger">@status</label></td>
+                                    }
+                                    else
+                                    {
+                                        <td><label class="badge badge-info"><i style="font-size:20px; color:white;" class="mdi mdi-email"></i></label></td>
+                                    }
+
+                                    <td>@item.ReceiverName</td>
+                                    <td>@item.Receiver</td>
+                                    <th>@item.Subject</th>
+                                    <th>@date</th>
+                                    <td><a href="/User/Message/SenderMessageDetails/@item.WriterMessageID" class="btn btn-primary btn-sm">Detay</a></td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

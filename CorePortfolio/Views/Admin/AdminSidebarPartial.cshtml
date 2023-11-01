@@ -1,0 +1,182 @@
+﻿
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a class="sidebar-brand brand-logo" href="@Url.Action("Index","Dashboard")">ADMIN</a>
+        <a class="sidebar-brand brand-logo-mini" href="@Url.Action("Index","Dashboard")"><i class="fas fa-map"></i></a>
+    </div>
+    <ul class="nav">
+        <li class="nav-item profile">
+            <div class="profile-desc">
+                <div class="profile-pic">
+                    <div class="count-indicator">
+                        <img class="img-xs rounded-circle " src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/faces/adminpic.png" alt="">
+                        <span class="count bg-success"></span>
+                    </div>
+                   @await Component.InvokeAsync("SidebarAdminInfo")
+                </div>
+                <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                    <a href="/ProfileSettings/Index" class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                                <i style="font-size:20px" class="mdi mdi-settings text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <p class="preview-subject ellipsis mb-1 text-small">Hesap Ayarları</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="/Default/Index" class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                                <i style="font-size:20px" class="mdi mdi-format-horizontal-align-left  text-info"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <p class="preview-subject ellipsis mb-1 text-small">Siteye Dön</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="User/Login/LogOut" class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                                <i style="font-size:20px" class="mdi mdi-logout text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <p class="preview-subject ellipsis mb-1 text-small">Çıkış Yap</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item nav-category">
+            <span class="nav-link">Navigasyon</span>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Dashboard")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-home"></i>
+                </span>
+                <span class="menu-title">Ana Sayfa</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-message-processing"></i>
+                </span>
+                <span class="menu-title">İletişim</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/Contact/Index">İletişim Bilgileri</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="@Url.Action("Index","ContactMessage")">İletişim Mesajları</a></li>
+
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","UserList")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-account"></i>
+                </span>
+                <span class="menu-title">Kullanıcılar</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-message-text"></i>
+                </span>
+                <span class="menu-title">Kullanıcı Mesajları</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/AdminMessage/CreateNewMessage">Yeni Mesaj Oluştur</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/AdminMessage/ReceiverMessageList">Gelen Kutusu</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/AdminMessage/SenderMessageList">Giden Kutusu</a></li>
+
+                </ul>
+            </div>
+        </li>
+        
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Announcement")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-alert"></i>
+                </span>
+                <span class="menu-title">Duyurular</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Feature")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-playlist-play"></i>
+                </span>
+                <span class="menu-title">Öne Çıkanlar</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","About")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-account-card-details"></i>
+                </span>
+                <span class="menu-title">Hakkımda</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Service")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-briefcase"></i>
+                </span>
+                <span class="menu-title">Hizmetler</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Skill")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-star"></i>
+                </span>
+                <span class="menu-title">Yetenekler</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Portfolio")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-chart-bar"></i>
+                </span>
+                <span class="menu-title">Projeler</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Experience")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-contacts"></i>
+                </span>
+                <span class="menu-title">Deneyimler</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","Testimonial")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-thumb-up"></i>
+                </span>
+                <span class="menu-title">Referanslar</span>
+            </a>
+
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="@Url.Action("Index","SocialMedia")">
+                <span class="menu-icon">
+                    <i style="font-size:20px" class="mdi mdi-github-circle"></i>
+                </span>
+                <span class="menu-title">Sosyal Medya</span>
+            </a>
+        </li>
+       
+    </ul>
+</nav>

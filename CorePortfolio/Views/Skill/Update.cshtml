@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete;
+@model Skill
+@{
+    ViewData["Title"] = "Yetenek Güncelle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Yetenek Güncelleme</h3>
+    <hr />
+</div>
+<form action="@Url.Action("UpdateSkill","Skill")" method="post">
+    <div class="col-lg-8">
+        <div class="row">
+            <input type="hidden" class="form-control" id="SkillID" name="SkillID" value="@Model.SkillID">
+            <input type="hidden" name="CreationDate" value="@Model.CreationDate" />
+            <div class="form-group col-md-4">
+                <label for="Title">Başlık</label>
+                <input required type="text" class="form-control" id="Title" name="Title" value="@Model.Title">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="Value">Oran</label>
+                <input required type="text" class="form-control" id="Value" name="Value" minlenght="1" maxlength="3" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="%" value="@Model.Value">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-8">
+                <button type="submit" class="btn btn-outline-info">Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+</form>

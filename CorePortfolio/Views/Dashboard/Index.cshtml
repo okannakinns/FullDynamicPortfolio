@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+    @await Component.InvokeAsync("FeatureStatistics")
+    <div class="row">
+    @await Component.InvokeAsync("ProjectStatusChart")
+        @await Component.InvokeAsync("Last5Projects")
+    </div>
+    @await Component.InvokeAsync("StatisticsDashboard2")
+    
+        @await Component.InvokeAsync("DashboardExperience")
+    <div class="row">
+        @await Component.InvokeAsync("Last4ContactMessages")
+        @await Component.InvokeAsync("ProjectSlider")
+        @await Component.InvokeAsync("ToDoListSection")
+    </div>
+    <div class="row">
+        @await Component.InvokeAsync("VisitorMap")
+    </div>

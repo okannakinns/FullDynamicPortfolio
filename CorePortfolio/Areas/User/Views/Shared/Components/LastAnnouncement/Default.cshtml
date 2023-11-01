@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete;
+@model Announcement
+@{
+    var date = "";
+    TimeSpan day = (DateTime.Now - Model.Date);
+    if (day.Days < 1 && Model.Date.Day == DateTime.Now.Day && day.Hours < 1)
+    {
+
+        date = day.Minutes + " Dakika Önce";
+    }
+    else if (day.Days >= 1 && day.Days <= 4)
+    {
+
+        date = day.Days + " Gün Önce";
+    }
+    else if (day.TotalHours <= 23)
+    {
+
+        date = day.Hours + " Saat Önce";
+    }
+    else if (day.Days > 4 && day.TotalHours > 23)
+    {
+
+        date = Model.Date.ToString("dd MMM yyyy");
+    }
+}
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title"> @Model.Title </p>
+            <p class="font-weight-500">@Model.Content</p>
+            <div class="d-flex flex-wrap mb-5">
+                <p style="position:absolute; top:20px; right:20px;"><small><b>@date</b></small></p>
+            </div>
+            <p><b>Yayınlayan:</b> Admin</p>
+            
+        </div>
+    </div>
+</div>

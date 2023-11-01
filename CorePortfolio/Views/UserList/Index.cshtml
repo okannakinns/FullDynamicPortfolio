@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete;
+@model List<WriterUser>
+@{
+    ViewData["Title"] = "Kayıtlı Kullanıcılar Listesi";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kayıtlı Kullanıcılar Listesi</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>E-Mail</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.Id</th>
+                                <td>@item.Name @item.SurName</td>
+                                <td>@item.UserName</td>
+                                <th>@item.Email</th>
+                                <td>
+                                    <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+
+                                        <a href="/UserList/Delete/@item.Id" class="dropdown-item preview-item">
+                                            <div class="preview-thumbnail">
+                                            </div>
+                                            <div class="preview-item-content">
+                                                <p class="preview-subject ellipsis mb-1 text-small">Sil</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete;
+@model Service
+@{
+    ViewData["Title"] = "Hizmet Güncelle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<form action="@Url.Action("UpdateService","Service")" method="post">
+    <div class="col-lg-12">
+        <div class="row">
+            <input type="hidden" id="ServiceID" name="ServiceID" value="@Model.ServiceID" />
+            <input type="hidden" name="CreationDate" value="@Model.CreationDate" />
+            <div class="form-group col-md-4">
+                <label for="Title">Başlık</label>
+                <input required type="text" class="form-control" id="Title" name="Title" placeholder="Örn: Dinamik Web Tasarımı" value="@Model.Title">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="ImageUrl">Resim Yolu</label>
+                <input required type="text" class="form-control" id="ImageUrl" name="ImageUrl" value="@Model.ImageUrl">
+            </div>
+        </div>
+           
+        <div class="row">
+            <div class="form-group col-md-8">
+                <button type="submit" class="btn btn-outline-info">Kaydet</button>
+            </div>
+        </div>
+    </div>
+   
+
+</form>

@@ -1,0 +1,86 @@
+﻿@using EntityLayer.Concrete;
+@model List<Portfolio>
+@{
+    ViewData["Title"] = "Proje Listesi";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Projeler Listesi Tablosu</h4>
+            <p class="card-description">
+                <a style="position:absolute;right:21px;top:22px;" href="@Url.Action("Add","Portfolio")" class="btn btn-outline-success">Ekle</a>
+            </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th title="Küçük Resim">K.Resim</th>
+                            <th>Ad</th>
+                            <th>Durum</th>
+                            <th>Platform</th>
+                            <th title="Büyük Resim">B.Resim</th>
+                            <th></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td><img style="border-radius:10px;" src="@item.ImageUrl"></td>
+                                <td><a href="@item.ProjectUrl" target="_blank">@item.Name</a></td>
+                                <td style="color:white;" class="status" data-status-id="@item.Status">@item.Status</td>
+                                <th>@item.Platform</th>
+                                <td><img style="border-radius:10px;" src="@item.ImageUrl2"></td>
+                                <td>
+                                    <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                                        
+                                        <a href="/Portfolio/Delete/@item.PortfolioID" class="dropdown-item preview-item">
+                                            <div class="preview-thumbnail">
+                                            </div>
+                                            <div class="preview-item-content">
+                                                <p class="preview-subject ellipsis mb-1 text-small">Sil</p>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="/Portfolio/Update/@item.PortfolioID" class="dropdown-item preview-item">
+                                            <div class="preview-thumbnail">
+                                            </div>
+                                            <div class="preview-item-content">
+                                                <p class="preview-subject ellipsis mb-1 text-small">Güncelle</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        
+        $('.status').each(function () {
+            var selectedStatus = $(this).data('status-id');
+
+            if (selectedStatus == "Tamamlandı") {
+                $(this).addClass("text-success");
+            } else if (selectedStatus == "Devam Ediyor") {
+                $(this).addClass("text-warning");
+            } else if (selectedStatus == "Plan Aşamasında") {
+                $(this).addClass("text-danger");
+            }
+        });
+    });
+
+</script>
+
